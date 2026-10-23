@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Сотрудник</title>
+<style>.error { color: red; }</style></head>
+<body>
+<h1>Сотрудник</h1>
+<form th:action="${action}" th:object="${employee}" method="post">
+    <p>ФИО: <input type="text" th:field="*{fullName}">
+        <span class="error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span></p>
+    <p>Email: <input type="text" th:field="*{email}">
+        <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></p>
+    <p>Телефон: <input type="text" th:field="*{phone}">
+        <span class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span></p>
+    <p>Должность: <input type="text" th:field="*{position}">
+        <span class="error" th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></span></p>
+    <p>Зарплата: <input type="text" th:field="*{salary}">
+        <span class="error" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></span></p>
+    <p>Активен: <input type="checkbox" th:field="*{active}"></p>
+    <button type="submit">Сохранить</button>
+</form>
+<a href="/employees">Назад к списку</a>
+</body>
+</html>
